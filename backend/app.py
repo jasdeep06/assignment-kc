@@ -1,6 +1,7 @@
 from fastapi import FastAPI, File, UploadFile
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
+import time
 
 origins = [
     "http://localhost:3000",
@@ -21,6 +22,8 @@ app.add_middleware(
 
 @app.post("/predict/")
 def predict(file: UploadFile = File(...)):
+
+    time.sleep(3)
 
     df = pd.read_csv(file.file)
 
