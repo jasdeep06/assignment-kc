@@ -57,7 +57,34 @@ const App = () => {
         dark:border-gray-600 dark:placeholder-gray-400" id="file_input"/>
         </React.Fragment>
       ) : (
-        <React.Fragment></React.Fragment>
+        <>
+          <table {...getTableProps()} className="m-auto text-lg text-left 
+          rtl:text-right divide-y divide-gray-200 
+                  text-gray-500">
+            <thead className='text-xl uppercase bg-gray-50 px-6 py-3 
+            text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              {headerGroups.map(headerGroup => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map(column => (
+                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()} className="bg-white divide-y divide-gray-200">
+              {rows.map(row => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map(cell => (
+                      <td {...cell.getCellProps()} className="px-6 py-2 whitespace-nowrap">{cell.render('Cell')}</td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </>
       )}
     </div>
   );
