@@ -53,16 +53,16 @@ const App = () => {
         dark:text-white" htmlFor="file_input">Upload file</label>
         <input type="file" accept=".csv" onChange={handleFileChange} className="block w-1/2 m-auto 
         text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer 
-        bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 
-        dark:border-gray-600 dark:placeholder-gray-400" id="file_input"/>
+        bg-gray-50  focus:outline-none" id="file_input"/>
         </React.Fragment>
       ) : (
         <>
+          <button className="block m-auto mb-3 border border-gray-300 rounded-lg p-2 bg-gray-50 text-gray-900" onClick={() => setShowTable(false)}>Upload Another CSV</button>
           <table {...getTableProps()} className="m-auto text-lg text-left 
           rtl:text-right divide-y divide-gray-200 
                   text-gray-500">
             <thead className='text-xl uppercase bg-gray-50 px-6 py-3 
-            text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+            text-left font-medium text-gray-500 uppercase tracking-wider'>
               {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map(column => (
