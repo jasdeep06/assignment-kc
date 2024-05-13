@@ -1,5 +1,8 @@
 import re
 from statistics import mean
+import gdown
+import os
+import pickle
 
 def calculate_total_seconds(time_list):
     """
@@ -76,3 +79,22 @@ def count_unique_actions(action_list):
     # Convert session times to a set to eliminate duplicates and count the unique elements
     unique_actions_count = len(set(action_list))
     return unique_actions_count
+
+def download_sessions_file():
+    file_id = '1LVy-1-UI9lbEtc39HqHpJ3KuY-dq8ROP'
+    url = f'https://drive.google.com/uc?id={file_id}'
+    gdown.download(url,os.path.join('cache','sessions.csv'))
+
+
+def initialize_assets():
+    tfidf_vectorizers = pickle.load(open("cache/tfidf.p","rb"))
+    one_hot_encoders = pickle.load(open("cache/one-hot.p","rb"))
+    count_vectorizer = pickle.load(open("cache/cv.p","rb"))
+    final_columns = pickle.load(open("cache/final_columns.p","rb"))
+    classifier = pickle.load(open("cache/rf.p","rb"))
+    label_encoder = pickle.load(open('cache/label-encoder.p','rb'))
+    if not os.path.exists(os.path.join('cache','sessions.csv')):
+        download_sessions_file()
+
+    return tfidf_vectorizers,one_hot_encoders,count_vectorizer,final_columns,classifier,label_encoder
+
