@@ -41,7 +41,7 @@ To get the application running on your local machine, follow these steps:
    - Frontend is available at `http://localhost/`
    - Backend is available at `http://localhost:8000/`
 
-A sample `test_user.csv` is available inside the `test_data` folder in the repository, which you can use as a starting point.
+A sample `test_user.csv` is available inside the `backend/test_data` folder in the repository, which you can use as a starting point.
 
 ## Tools, Libraries, and Frameworks
 
