@@ -1,0 +1,3 @@
+id,date_account_created,timestamp_first_active,date_first_booking,gender,age,signup_method,signup_flow,language,affiliate_channel,affiliate_provider,first_affiliate_tracked,signup_app,first_device_type,first_browser,country_destination
+d1mm9tcy42,2014-01-01,20140101000936,2014-01-04,MALE,62.0,basic,0,en,sem-non-brand,google,omg,Web,Windows Desktop,Chrome,other
+yo8nz8bqcq,2014-01-01,20140101001558,,-unknown-,,basic,0,en,direct,direct,untracked,Web,Mac Desktop,Firefox,NDF
